@@ -29,8 +29,8 @@ body {
     background-color: rgba(255, 218, 53, 0.7);
     padding: 20px;
     border-radius: 10px;
-    width: 90%; /* Adicionado para limitar a largura em telas maiores */
-    max-width: 500px; /* Adicionado para limitar a largura máxima */
+    width: 90%;
+    max-width: 910px; /* Adicionado para limitar a largura em telas maiores */
 }
 
 .clock {
@@ -67,6 +67,13 @@ span {
     justify-content: center; /* Para centralizar o conteúdo */
     align-items: center; /* Para alinhar verticalmente */
 }
+
+.city {
+    margin-top: 5px; /* Espaço entre a temperatura e o nome da cidade */
+    font-size: 2vw; /* Tamanho da fonte do nome da cidade */
+    color: #ffffff; /* Cor do texto */
+}
+
 
 /* Responsividade para telas menores que 768px */
 @media (max-width: 768px) {

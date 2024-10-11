@@ -37,7 +37,7 @@ async function startClock() {
     const secondElement = document.getElementById('seconds');
     const dateElement = document.getElementById('date');
     const temperatureElement = document.getElementById('temperature'); // Elemento para mostrar a temperatura
-    const cityElement = document.getElementById('city'); // Novo elemento para a cidade
+    const cityElement = document.getElementById('city'); // Elemento para mostrar o nome da cidade
 
     async function updateTime() {
         const now = new Date();
@@ -66,11 +66,13 @@ async function startClock() {
         const weather = await fetchWeather(latitude, longitude);
         updateBackground(weather);
 
-        // Exibe a temperatura e a cidade
+        // Exibe a temperatura no elemento de temperatura
         const temperature = weather.main.temp;
-        const cityName = weather.name; // Nome da cidade
         temperatureElement.textContent = `${temperature}°C`;
-        cityElement.textContent = `${cityName} -`; // Adiciona um espaço antes do nome da cidade
+
+        // Exibe o nome da cidade no elemento de cidade
+        const cityName = weather.name; // Obtém o nome da cidade da resposta da API
+        cityElement.textContent = cityName; // Atualiza o elemento de cidade
     }, (error) => {
         console.error("Erro ao obter a localização: ", error);
     });
