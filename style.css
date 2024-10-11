@@ -61,7 +61,7 @@ span {
 
 .temperature {
     margin-top: 10px;
-    font-size: 2vw;
+    font-size: 3.5vw;
     color: #ffffff;
     display: flex; /* Para que os filhos apareçam em linha */
     justify-content: center; /* Para centralizar o conteúdo */
@@ -70,7 +70,7 @@ span {
 
 .city {
     margin-top: 5px; /* Espaço entre a temperatura e o nome da cidade */
-    font-size: 2vw; /* Tamanho da fonte do nome da cidade */
+    font-size: 4vw; /* Tamanho da fonte do nome da cidade */
     color: #ffffff; /* Cor do texto */
 }
 
@@ -94,8 +94,13 @@ span {
     }
 
     .temperature {
-        font-size: 3vw; /* Ajustando o tamanho da temperatura */
+        font-size: 6vw; /* Ajustando o tamanho da temperatura */
     }
+
+    .city {
+        font-size: 5vw;
+    }
+
 }
 
 /* Responsividade para telas menores que 480px */
@@ -117,7 +122,11 @@ span {
     }
 
     .temperature {
-        font-size: 4vw; /* Ajustando o tamanho da temperatura */
+        font-size: 6vw; /* Ajustando o tamanho da temperatura */
+    }
+
+    .city {
+        font-size: 5vw;
     }
 }
 
