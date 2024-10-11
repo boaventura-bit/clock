@@ -57,6 +57,15 @@ span {
     color: #ffffff;
 }
 
+.temperature {
+    margin-top: 10px;
+    font-size: 2vw;
+    color: #ffffff;
+    display: flex; /* Para que os filhos apareçam em linha */
+    justify-content: center; /* Para centralizar o conteúdo */
+    align-items: center; /* Para alinhar verticalmente */
+}
+
 @media (max-width: 768px) {
     .clock-container {
         width: 95%; 
@@ -75,11 +84,6 @@ span {
     }
 }
 
-.temperature {
-    margin-top: 10px;
-    font-size: 3.5vw;
-    color: #ffffff;
-}
 
 @media (max-width: 480px) {
     .clock-container {
