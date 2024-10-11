@@ -81,20 +81,35 @@ const fullscreenBtn = document.getElementById('fullscreen-btn');
 const fullscreenIcon = document.getElementById('fullscreen-icon');
 
 fullscreenBtn.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-            console.error(`Erro ao tentar entrar no modo tela cheia: ${err.message}`);
-        });
+    // Verifique se estamos no modo de tela cheia
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+        // Entre no modo de tela cheia, verificando a compatibilidade com diferentes navegadores
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { // Safari
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+            document.documentElement.msRequestFullscreen();
+        }
         fullscreenIcon.classList.remove('expand-icon');
         fullscreenIcon.classList.add('exit-icon');
     } else {
-        document.exitFullscreen();
+        // Sair do modo de tela cheia, verificando compatibilidade
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { // Safari
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
         fullscreenIcon.classList.remove('exit-icon');
         fullscreenIcon.classList.add('expand-icon');
     }
 });
-
-
 
 // Inicia o relógio
 startClock();
