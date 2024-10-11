@@ -7,18 +7,24 @@ async function fetchWeather(lat, lon) {
 
 function updateBackground(weather) {
     const body = document.body;
+    const clockContainer = document.querySelector('.clock-container'); // Seleciona o clock-container
 
-    // Condições do clima com as imagens localizadas na pasta 'img'
+    // Condições do clima com as imagens e cores de fundo para o clock-container
     if (weather.weather[0].main === "Clear") {
         body.style.backgroundImage = "url('img/clear.jpeg')"; // Imagem para dias ensolarados
+        clockContainer.style.backgroundColor = "rgba(255, 218, 53, 0.7)"; // Fundo amarelo claro
     } else if (weather.weather[0].main === "Clouds") {
         body.style.backgroundImage = "url('img/cloudy.jpeg')"; // Imagem para dias nublados
+        clockContainer.style.backgroundColor = "rgba(169, 169, 169, 0.7)"; // Fundo cinza claro
     } else if (weather.weather[0].main === "Rain") {
         body.style.backgroundImage = "url('img/rainy.jpeg')"; // Imagem para dias chuvosos
+        clockContainer.style.backgroundColor = "rgba(100, 149, 237, 0.7)"; // Fundo azul claro
     } else if (weather.weather[0].main === "Snow") {
         body.style.backgroundImage = "url('img/snowy.jpeg')"; // Imagem para dias nevados
+        clockContainer.style.backgroundColor = "rgba(240, 248, 255, 0.7)"; // Fundo branco azulado
     } else {
         body.style.backgroundImage = "url('img/default.jpeg')"; // Imagem padrão
+        clockContainer.style.backgroundColor = "rgba(255, 218, 53, 0.7)"; // Fundo padrão cinza
     }
 
     body.style.backgroundSize = "cover"; // Cobrir toda a tela
@@ -61,55 +67,11 @@ async function startClock() {
 
         // Exibe a temperatura no elemento de temperatura
         const temperature = weather.main.temp;
-        temperatureElement.textContent = `Temperatura: ${temperature}°C`;
+        temperatureElement.textContent = `${temperature}°C`;
     }, (error) => {
         console.error("Erro ao obter a localização: ", error);
     });
 }
-
-document.getElementById('fullscreen-btn').addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-            console.log(`Erro ao tentar entrar no modo tela cheia: ${err.message}`);
-        });
-    } else {
-        document.exitFullscreen();
-    }
-});
-
-const fullscreenBtn = document.getElementById('fullscreen-btn');
-const fullscreenIcon = document.getElementById('fullscreen-icon');
-
-fullscreenBtn.addEventListener('click', () => {
-    // Verifique se estamos no modo de tela cheia
-    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
-        // Entre no modo de tela cheia, verificando a compatibilidade com diferentes navegadores
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.webkitRequestFullscreen) { // Safari
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-            document.documentElement.msRequestFullscreen();
-        }
-        fullscreenIcon.classList.remove('expand-icon');
-        fullscreenIcon.classList.add('exit-icon');
-    } else {
-        // Sair do modo de tela cheia, verificando compatibilidade
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { // Safari
-            document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen) { // Firefox
-            document.mozCancelFullScreen();
-        } else if (document.msExitFullscreen) { // IE/Edge
-            document.msExitFullscreen();
-        }
-        fullscreenIcon.classList.remove('exit-icon');
-        fullscreenIcon.classList.add('expand-icon');
-    }
-});
 
 // Inicia o relógio
 startClock();

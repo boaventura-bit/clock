@@ -26,7 +26,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(116, 116, 116, 0.7);
+    background-color: rgba(255, 218, 53, 0.7);
     padding: 20px;
     border-radius: 10px;
 }
@@ -57,42 +57,6 @@ span {
     color: #ffffff;
 }
 
-.fullscreen-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-}
-
-.fullscreen-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.fullscreen-btn i {
-    font-size: 24px;
-}
-
-/* Ícones de tela cheia (expandir e diminuir) */
-.expand-icon::before {
-    content: "\26F6"; /* Unicode para ícone de expandir */
-}
-
-.exit-icon::before {
-    content: "\2715"; /* Unicode para ícone de fechar/diminuir */
-}
-
-
 @media (max-width: 768px) {
     .clock-container {
         width: 95%; 
@@ -109,6 +73,12 @@ span {
     .date {
         font-size: 5vw;
     }
+}
+
+.temperature {
+    margin-top: 10px;
+    font-size: 3.5vw;
+    color: #ffffff;
 }
 
 @media (max-width: 480px) {
