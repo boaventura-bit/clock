@@ -67,5 +67,34 @@ async function startClock() {
     });
 }
 
+document.getElementById('fullscreen-btn').addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log(`Erro ao tentar entrar no modo tela cheia: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+});
+
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+const fullscreenIcon = document.getElementById('fullscreen-icon');
+
+fullscreenBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error(`Erro ao tentar entrar no modo tela cheia: ${err.message}`);
+        });
+        fullscreenIcon.classList.remove('expand-icon');
+        fullscreenIcon.classList.add('exit-icon');
+    } else {
+        document.exitFullscreen();
+        fullscreenIcon.classList.remove('exit-icon');
+        fullscreenIcon.classList.add('expand-icon');
+    }
+});
+
+
+
 // Inicia o relógio
 startClock();
