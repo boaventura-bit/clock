@@ -1,5 +1,5 @@
 async function fetchWeather(lat, lon) {
-    const apiKey = 'e76a27b9fd4b4fc452f2e9eeb263be64'; // Substitua pela sua chave de API
+    const apiKey = 'e76a27b9fd4b4fc452f2e9eeb263be64'; // API
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=pt_br&units=metric`);
     const data = await response.json();
     return data;
@@ -7,28 +7,28 @@ async function fetchWeather(lat, lon) {
 
 function updateBackground(weather) {
     const body = document.body;
-    const clockContainer = document.querySelector('.clock-container'); // Seleciona o clock-container
+    const clockContainer = document.querySelector('.clock-container');
 
-    // Condições do clima com as imagens e cores de fundo para o clock-container
+    // Condições do clima com as imagens e cores de fundo
     if (weather.weather[0].main === "Clear") {
-        body.style.backgroundImage = "url('img/clear.jpeg')"; // Imagem para dias ensolarados
+        body.style.backgroundImage = "url('img/clear.jpeg')"; // Dias ensolarados
         clockContainer.style.backgroundColor = "rgba(255, 218, 53, 0.7)"; // Fundo amarelo claro
     } else if (weather.weather[0].main === "Clouds") {
-        body.style.backgroundImage = "url('img/cloudy.jpeg')"; // Imagem para dias nublados
+        body.style.backgroundImage = "url('img/cloudy.jpeg')"; // Dias nublados
         clockContainer.style.backgroundColor = "rgba(169, 169, 169, 0.7)"; // Fundo cinza claro
     } else if (weather.weather[0].main === "Rain") {
-        body.style.backgroundImage = "url('img/rainy.jpeg')"; // Imagem para dias chuvosos
+        body.style.backgroundImage = "url('img/rainy.jpeg')"; // Dias chuvosos
         clockContainer.style.backgroundColor = "rgba(100, 149, 237, 0.7)"; // Fundo azul claro
     } else if (weather.weather[0].main === "Snow") {
-        body.style.backgroundImage = "url('img/snowy.jpeg')"; // Imagem para dias nevados
+        body.style.backgroundImage = "url('img/snowy.jpeg')"; // Dias nevados
         clockContainer.style.backgroundColor = "rgba(240, 248, 255, 0.7)"; // Fundo branco azulado
     } else {
         body.style.backgroundImage = "url('img/default.jpeg')"; // Imagem padrão
         clockContainer.style.backgroundColor = "rgba(255, 218, 53, 0.7)"; // Fundo padrão cinza
     }
 
-    body.style.backgroundSize = "cover"; // Cobrir toda a tela
-    body.style.backgroundPosition = "center"; // Centraliza a imagem
+    body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
 }
 
 async function startClock() {
@@ -36,8 +36,8 @@ async function startClock() {
     const minuteElement = document.getElementById('minutes');
     const secondElement = document.getElementById('seconds');
     const dateElement = document.getElementById('date');
-    const temperatureElement = document.getElementById('temperature'); // Elemento para mostrar a temperatura
-    const cityElement = document.getElementById('city'); // Elemento para mostrar o nome da cidade
+    const temperatureElement = document.getElementById('temperature'); // Mostrar a temperatura
+    const cityElement = document.getElementById('city'); // Mostrar o nome da cidade
 
     async function updateTime() {
         const now = new Date();

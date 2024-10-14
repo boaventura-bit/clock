@@ -30,7 +30,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 90%;
-    max-width: 910px; /* Adicionado para limitar a largura em telas maiores */
+    max-width: 910px;
 }
 
 .clock {
@@ -63,15 +63,15 @@ span {
     margin-top: 10px;
     font-size: 3.5vw;
     color: #ffffff;
-    display: flex; /* Para que os filhos apareçam em linha */
-    justify-content: center; /* Para centralizar o conteúdo */
-    align-items: center; /* Para alinhar verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .city {
-    margin-top: 5px; /* Espaço entre a temperatura e o nome da cidade */
-    font-size: 4vw; /* Tamanho da fonte do nome da cidade */
-    color: #ffffff; /* Cor do texto */
+    margin-top: 5px;
+    font-size: 4vw;
+    color: #ffffff;
 }
 
 
@@ -94,7 +94,7 @@ span {
     }
 
     .temperature {
-        font-size: 6vw; /* Ajustando o tamanho da temperatura */
+        font-size: 6vw;
     }
 
     .city {
@@ -122,7 +122,7 @@ span {
     }
 
     .temperature {
-        font-size: 6vw; /* Ajustando o tamanho da temperatura */
+        font-size: 6vw;
     }
 
     .city {
@@ -133,10 +133,10 @@ span {
 /* Adicionando um intervalo para telas entre 481px e 768px */
 @media (min-width: 481px) and (max-width: 768px) {
     .digit {
-        font-size: 10vw; /* Tamanho intermediário para telas médias */
+        font-size: 10vw;
     }
 
     .date {
-        font-size: 5vw; /* Tamanho intermediário para a data */
+        font-size: 5vw;
     }
 }

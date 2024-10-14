@@ -1,0 +1,91 @@
+Documentação do Relógio Digital com Clima
+
+Descrição
+Este projeto exibe um relógio digital com a hora atual, data, temperatura e o nome da cidade do usuário, obtidos via geolocalização. Dependendo das condições climáticas, a interface do relógio ajusta automaticamente o fundo de tela e as cores do contêiner do relógio.
+
+Funcionalidades principais:
+- Relógio digital em tempo real (horas, minutos e segundos).
+- Exibição da data no formato `DD - MM - AAAA`.
+- Obtenção da localização do usuário para exibir a temperatura e o nome da cidade.
+- Alteração dinâmica do fundo de tela e cor do contêiner do relógio com base nas condições climáticas (claro, nublado, chuvoso, neve, etc.).
+
+Estrutura do Projeto
+
+1. HTML
+O HTML contém a estrutura base para o relógio, a data, a temperatura e o nome da cidade. Ele utiliza classes e ids para estilização e interação via JavaScript.
+
+Elementos importantes:
+```html
+<div class="clock-container">
+    <div class="clock">
+        <div class="digit" id="hours"></div>
+        <span>:</span>
+        <div class="digit" id="minutes"></div>
+        <span>:</span>
+        <div class="digit" id="seconds"></div>
+    </div>
+    <div class="date" id="date"></div>
+    <div class="temperature" id="temperature"></div>
+    <div class="city" id="city"></div> <!-- Exibe o nome da cidade -->
+</div>
+```
+
+2. CSS
+O CSS define o estilo responsivo para diferentes tamanhos de tela e altera o fundo do contêiner do relógio de acordo com as condições climáticas.
+
+Principais estilos:
+- .clock-container: Define o contêiner central onde o relógio, a data, a temperatura e o nome da cidade são exibidos.
+- .digit: Estiliza os dígitos do relógio.
+- Responsividade: O layout é ajustado para telas de diferentes larguras (768px e 480px).
+
+Responsividade:
+- Para telas menores que 768px e 480px, o tamanho das fontes e o layout dos elementos são ajustados para garantir uma boa experiência visual.
+
+3. JavaScript
+O JavaScript é responsável por obter a hora atual e atualizar o relógio, buscar a localização do usuário via geolocalização e consultar a API de clima do OpenWeatherMap para obter a temperatura e o nome da cidade.
+
+Principais funções:
+- fetchWeather(lat, lon): Consulta a API do OpenWeatherMap com base nas coordenadas geográficas (latitude e longitude) do usuário e retorna os dados do clima.
+- updateBackground(weather): Altera o fundo da página e a cor do contêiner do relógio com base nas condições climáticas retornadas pela API.
+- startClock(): Inicia o relógio, atualiza a hora em tempo real e obtém a localização do usuário para exibir a temperatura e o nome da cidade.
+
+4. Imagens
+O projeto utiliza imagens de fundo que mudam conforme o clima. As imagens devem ser armazenadas na pasta `img` e nomeadas de acordo com as condições climáticas:
+- `clear.jpeg`: Usada para dias ensolarados.
+- `cloudy.jpeg`: Usada para dias nublados.
+- `rainy.jpeg`: Usada para dias chuvosos.
+- `snowy.jpeg`: Usada para dias nevados.
+- `default.jpeg`: Usada como fundo padrão.
+
+5. API Key
+Para fazer chamadas à API do OpenWeatherMap, é necessário utilizar uma chave de API válida. Esta deve ser inserida na variável `apiKey` dentro da função `fetchWeather`.
+
+```javascript
+const apiKey = 'sua-chave-de-api-aqui'; // Substitua pela sua chave de API
+```
+
+Requisitos
+- Chave da API do [OpenWeatherMap](https://openweathermap.org/api) para obter os dados de clima.
+- Um servidor local para executar o projeto (ou abrir o arquivo diretamente no navegador).
+- Conexão com a internet para obter a localização do usuário e consultar a API de clima.
+
+Configuração
+1. Baixar ou Clonar o Projeto:
+   Baixe os arquivos do projeto ou clone o repositório para sua máquina.
+
+2. Adicionar a Chave da API:
+   Insira sua chave da API do OpenWeatherMap no lugar indicado no código JavaScript.
+
+3. Imagens de Fundo:
+   Certifique-se de que as imagens de fundo (`clear.jpeg`, `cloudy.jpeg`, `rainy.jpeg`, `snowy.jpeg`, `default.jpeg`) estejam na pasta `img` no diretório principal do projeto.
+
+4. Rodar o Projeto:
+   Abra o arquivo `index.html` no navegador ou use um servidor local.
+
+Possíveis Melhorias
+- Adicionar mais condições climáticas, como tempestades ou neblina, e associar diferentes imagens e cores de fundo.
+- Implementar uma opção para o usuário escolher manualmente a cidade para obter a previsão do tempo.
+- Salvar as preferências do usuário usando cookies ou localStorage (como a última cidade buscada).
+
+Créditos
+Desenvolvido por Carlos Boaventura. Utiliza a API do [OpenWeatherMap](https://openweathermap.org/) para dados climáticos.
