@@ -1,7 +1,8 @@
 Documentação do Relógio Digital com Clima
 
 Descrição
-Este projeto exibe um relógio digital com a hora atual, data, temperatura e o nome da cidade do usuário, obtidos via geolocalização. Dependendo das condições climáticas, a interface do relógio ajusta automaticamente o fundo de tela e as cores do contêiner do relógio.
+Este projeto exibe um relógio digital com a hora atual, data, temperatura e o nome da cidade do usuário, obtidos via geolocalização.
+Dependendo das condições climáticas, a interface do relógio ajusta automaticamente o fundo de tela e as cores do contêiner do relógio.
 
 Funcionalidades principais:
 - Relógio digital em tempo real (horas, minutos e segundos).
